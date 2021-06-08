@@ -1,0 +1,16 @@
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    (async () => {
+        try {
+            const result = await axios.get(
+                `https://www.zerocho.com/api/search/
+                ${encodeURIComponent("노드")}`
+                //노드라는 한글주소가 문자열로 변환됨 받는쪽은 decode로
+            );
+            console.log(result);
+            console.log(result.data);
+        } catch (error) {
+            console.error(error);
+        }
+    })();
+</script>

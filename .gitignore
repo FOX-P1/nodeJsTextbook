@@ -1,1 +1,4 @@
-./chapter_8/learn-mongoose/node_modules
+/chapter_8/learn-mongoose/node_modules
+/node_modules
+/chapter_9/lecture/node_modules
+/chapter_9/lecture/.env

@@ -41,8 +41,10 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
             img: req.body.url,
             UserId: req.user.id,
         });
-        const hashtags = req.body.content.match(/#[^\s#]+/g);
-
+        const hashtags = req.body.content.match(/#[^\s#]*/g);
+        // [#노드, #익스프레스]
+        // [노드, 익스프레스]
+        // [findOrCreate(노드), findOrCreate(익스프레스)]
         // ['javascipt', 'sql']
         if (hashtags) {
             // hashtags.forEach(tag => {
@@ -62,5 +64,8 @@ router.post('/', isLoggedIn, upload2.none(), async (req, res, next) => {
         res.redirect('/');
     } catch (error) {
         console.error(error);
+        next(error);
     }
-})
+});
+
+module.exports = router;
